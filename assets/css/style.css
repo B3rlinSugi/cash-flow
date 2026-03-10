@@ -1,0 +1,59 @@
+/* =============================================
+   Cash Flow Class — Custom Styles v2.0
+   ============================================= */
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    background-color: #f8f9fc;
+}
+
+/* Sidebar */
+#wrapper { display: flex; }
+.sidebar {
+    width: 220px;
+    min-height: 100vh;
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    z-index: 100;
+    overflow-y: auto;
+    flex-direction: column;
+}
+.sidebar .nav-link { color: rgba(255,255,255,.8); padding: .75rem 1rem; font-size: .85rem; }
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active { color: #fff; background: rgba(255,255,255,.1); }
+.sidebar .sidebar-heading { color: rgba(255,255,255,.4); font-size: .65rem; font-weight: 800; letter-spacing: .13rem; text-transform: uppercase; padding: .5rem 1rem; }
+.sidebar .collapse-inner { border-radius: .35rem; }
+.sidebar .collapse-item { padding: .5rem 1.5rem; font-size: .85rem; color: #3a3b45; }
+.sidebar .collapse-item:hover { background: #eaecf4; }
+
+/* Content wrapper */
+#content-wrapper { margin-left: 220px; min-height: 100vh; display: flex; flex-direction: column; }
+#content { flex: 1; }
+
+/* Cards with colored left border */
+.border-left-primary  { border-left: 4px solid #4e73df !important; }
+.border-left-success  { border-left: 4px solid #1cc88a !important; }
+.border-left-danger   { border-left: 4px solid #e74a3b !important; }
+.border-left-info     { border-left: 4px solid #36b9cc !important; }
+.border-left-warning  { border-left: 4px solid #f6c23e !important; }
+
+/* Topbar */
+.topbar { height: 56px; }
+.img-profile { width: 32px; height: 32px; object-fit: cover; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); transition: transform .3s; }
+    .sidebar.show { transform: translateX(0); }
+    #content-wrapper { margin-left: 0; }
+}
+
+/* Table */
+.table thead th { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05rem; }
+
+/* Badge level */
+.badge-reguler  { background: #6c757d; }
+.badge-silver   { background: #adb5bd; color: #333; }
+.badge-gold     { background: #f6c23e; color: #333; }
+.badge-platinum { background: #4e73df; }
