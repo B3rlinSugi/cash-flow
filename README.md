@@ -198,23 +198,38 @@ InnoDB mendukung foreign key constraints dan transaksi ACID, yang sangat penting
 
 ---
 
+## ⚙️ DevOps & Deployment
+
+Proyek ini menerapkan alur **Continuous Deployment (CD)** modern untuk iterasi yang cepat dan reliabel:
+
+- **Platform Deployment**: [Railway](https://railway.app)
+- **Workflow Otomatis**: Trigger deployment otomatis setiap kali ada perubahan yang di-*push* ke branch `main`.
+- **Relational Sync**: Menggunakan utilitas migrasi skema untuk menjaga konsistensi database antar lingkungan (development & production).
+- **Monitoring & Health**: Terintegrasi langsung dengan indikator status di dashboard utama Portfolio.
+
+---
+
 ## 👤 Author
 
 <div align="center">
 
-**Berlin Sugiyanto**
+**Berlin Sugiyanto Hutajulu**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-berlinsugi-0077B5?style=flat-square&logo=linkedin)](https://linkedin.com/in/berlinsugi)
-[![Portfolio](https://img.shields.io/badge/Portfolio-berlinsugi.vercel.app-4e73df?style=flat-square&logo=vercel)](https://berlinsugi.vercel.app)
-[![Email](https://img.shields.io/badge/Email-berlinsugiyanto23%40gmail.com-D14836?style=flat-square&logo=gmail)](mailto:berlinsugiyanto23@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-B3rlinSugi-181717?style=flat-square&logo=github)](https://github.com/B3rlinSugi)
-
-</div>
+[![GitHub](https://img.shields.io/badge/GitHub-B3rlinSugi-181717?style=flat&logo=github)](https://github.com/B3rlinSugi)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-berlinsugi-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/berlinsugi)
+[![Portfolio](https://img.shields.io/badge/Portfolio-berlinsugi.vercel.app-4e73df?style=flat&logo=vercel)](https://berlinsugi.vercel.app)
 
 ---
 
-<div align="center">
+## ⚙️ DevOps & Deployment
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f3460,50:16213e,100:1a1a2e&height=100&section=footer" />
+This project uses a modern **Continuous Deployment (CD)** pipeline for rapid iteration:
 
-</div>
+- **Deployment Platform**: [Railway](https://railway.app)
+- **Workflow**: Automated triggers on `git push` to `main`.
+- **Relational Sync**: Schema migration utility ensures database consistency between environments.
+- **Monitoring**: Integrated health-check signals via the core Portfolio Dashboard.
+
+---
+<p align="center">Built with ❤️ and Modern PHP · Financial Integrity Simplified</p>
+>>>>>>> f986667 (docs: add DevOps and Deployment section to README)
