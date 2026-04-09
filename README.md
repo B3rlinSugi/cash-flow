@@ -5,10 +5,19 @@
 [![PHP](https://img.shields.io/badge/PHP-8.x-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)](https://cash-flow-production-d733.up.railway.app/login.php)
 [![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)](https://github.com/B3rlinSugi/cash-flow)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 </div>
+
+---
+
+## 🌐 Live Demo
+
+> **[https://cash-flow-production-d733.up.railway.app/login.php](https://cash-flow-production-d733.up.railway.app/login.php)**
+
+Aplikasi sudah di-deploy di Railway dan dapat diakses secara publik.
 
 ---
 
