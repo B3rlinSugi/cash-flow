@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS admin (
 
 -- password = "password123" (bcrypt)
 INSERT INTO admin (nama, username, password, foto) VALUES
-('Admin Website', 'admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin.png');
+('Admin Website', 'admin', '$2y$10$3zfxB9E16qMEC/CENEsiIeTi9/8x8p8vUti2CxnABl8U/LWoPIq16', 'admin.png');
 
 -- Tabel Anggota
 CREATE TABLE IF NOT EXISTS anggota (
