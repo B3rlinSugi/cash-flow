@@ -1,101 +1,211 @@
-# 💰 Cash Flow Manager — Financial Visualization System
+<div align="center">
 
-A comprehensive financial modernization system built with **PHP** and **MySQL**. Re-engineered from a legacy codebase, this platform features industrial-grade Bcrypt security, ACID-compliant relational integrity, and high-fidelity data visualization.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,50:16213e,100:0f3460&height=180&section=header&text=Cash%20Flow%20Class&fontSize=45&fontColor=e94560&animation=fadeIn&fontAlignY=38&desc=Financial%20Management%20System%20%7C%20PHP%208%20%7C%20MySQL%20%7C%20bcrypt&descAlignY=55&descColor=a8b2d8" />
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-cashflow.up.railway.app-4e73df?style=for-the-badge&logo=railway&logoColor=white)](https://cash-flow-production-d733.up.railway.app)
-[![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![PHP](https://img.shields.io/badge/PHP-8.x-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
-[![Chart.js](https://img.shields.io/badge/Chart.js-4.x-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://chartjs.org)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+[![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)](https://github.com/B3rlinSugi/cash-flow)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+
+</div>
 
 ---
 
-## 🏗 System Architecture
+## 📌 Overview
 
-The transition from legacy logic to a modern structured flow involves a secure Auth middleware and normalized data handling.
+**Cash Flow Class** adalah sistem manajemen keuangan kas organisasi yang dibangun dengan fokus pada **modernisasi legacy codebase** ke standar produksi — skenario nyata yang umum ditemui dalam peran software maintenance dan backend development.
 
-```mermaid
-graph TD
-    User["👤 Student / Admin"]
-    Auth["🔒 Bcrypt-Secured Auth"]
-    Finance["🏦 Financial Logic (Income/Expense/Deferred)"]
-    Report["📄 Report Generator (Dompdf)"]
-    Chart["📈 Analytics Engine (Chart.js)"]
-    DB[("🗄️ MySQL (FK Constrained)")]
+> 💡 **Nilai utama proyek ini:** Kemampuan untuk **mengambil sistem lama yang sudah berjalan**, mengidentifikasi celah keamanan dan arsitektur, lalu melakukan upgrade secara bertahap tanpa merusak fungsi yang sudah ada.
 
-    User --> Auth
-    Auth --> Finance
-    Finance --> DB
-    Finance --> Report
-    Finance --> Chart
+### 🏆 Highlight Upgrade
+
+| Yang Diubah | Sebelum | Sesudah |
+|---|---|---|
+| Password hashing | ❌ MD5 (tidak aman) | ✅ bcrypt (cost factor 12) |
+| Database engine | ❌ MyISAM | ✅ InnoDB + FK constraints |
+| Query method | ❌ Raw MySQL | ✅ PDO Prepared Statements |
+| Analytics | ❌ Tidak ada | ✅ Dashboard 6 bulan |
+| Pelaporan | ❌ Manual | ✅ PDF export terfilter |
+
+---
+
+## ✨ Fitur Utama
+
+### 🔐 Security Upgrade
+- **Migrasi MD5 → bcrypt** tanpa breaking change pada data user existing
+- Redesain alur autentikasi dengan session security hardening
+- PDO prepared statements di semua query — proteksi SQL injection
+
+### 💸 Manajemen Kas
+- Pencatatan transaksi pemasukan & pengeluaran dengan kategori
+- **Modul pembayaran ditangguhkan (deferred payment)** dengan tracking status otomatis: `Pending → Lunas`
+- Riwayat transaksi dengan search dan filter berdasarkan tanggal, kategori, tipe
+
+### 📊 Analytics Dashboard
+- Visualisasi arus kas **6 bulan** menggunakan Chart.js (pemasukan vs pengeluaran)
+- Kartu ringkasan bulanan dengan kalkulasi saldo
+- Laporan aging piutang/hutang tertangguh
+
+### 📄 PDF Export
+- Laporan keuangan yang dapat diekspor, **terfilter per bulan dan tipe transaksi**
+- Format print-ready yang sesuai untuk audit organisasi
+
+---
+
+## 🏗️ Arsitektur Sistem
+
+```
+┌─────────────────────────────────────────────┐
+│               CLIENT LAYER                  │
+│       Browser (HTML/CSS/Bootstrap 5)        │
+└────────────────────┬────────────────────────┘
+                     │ HTTP Request
+┌────────────────────▼────────────────────────┐
+│            APPLICATION LAYER (PHP 8)        │
+│                                             │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+│  │   Auth   │  │   Cash   │  │Analytics │  │
+│  │ (bcrypt) │  │   Flow   │  │Dashboard │  │
+│  └──────────┘  └──────────┘  └──────────┘  │
+│  ┌──────────┐  ┌──────────┐                 │
+│  │ Deferred │  │   PDF    │                 │
+│  │ Payment  │  │  Export  │                 │
+│  └──────────┘  └──────────┘                 │
+└────────────────────┬────────────────────────┘
+                     │ PDO (Prepared Statements)
+┌────────────────────▼────────────────────────┐
+│             DATABASE LAYER                  │
+│           MySQL 8 (InnoDB, FK)              │
+│  users │ transactions │ categories          │
+│  deferred_payments │ export_logs            │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-## ✨ Features
+## 🗄️ Desain Database
 
-- **🛡 Modernized Security:** Successfully migrated from legacy MD5 hashing to secure Bcrypt patterns with cost factors of 12.
-- **📊 Fiscal Analytics:** Real-time 6-month income vs expense visualization using interactive Chart.js modules.
-- **⏳ Deferred Tracking:** Specialized logical flow for tracking and alerting on pending/deferred member payments.
-- **🖨 Audit Reports:** Server-side PDF generation for formal financial records with period-based filtering.
-- **🔗 Relational Integrity:** Strictly enforced DB constraints (InnoDB) to ensure 0% orphaned financial records.
+| Tabel | Deskripsi |
+|---|---|
+| `users` | Akun pengguna dengan password bcrypt |
+| `transactions` | Rekaman pemasukan/pengeluaran dengan kategori dan tanggal |
+| `categories` | Master kategori transaksi |
+| `deferred_payments` | Rekaman pembayaran ditangguhkan dengan due date dan status |
+| `export_logs` | Riwayat export laporan per pengguna |
 
 ---
 
-## 🗄 Database Schema
+## 🛠️ Tech Stack
 
-The schema is optimized for financial consistency and historical auditing.
+| Layer | Teknologi |
+|---|---|
+| Language | PHP 8.x |
+| Database | MySQL 8 (InnoDB, FK Constraints) |
+| DB Access | PDO + Prepared Statements |
+| Frontend | Bootstrap 5, HTML5, CSS3, JavaScript |
+| Charts | Chart.js |
+| PDF Export | TCPDF / FPDF |
+| Security | bcrypt, Session Hardening |
 
-```mermaid
-erDiagram
-    ANGGOTA ||--o{ KAS : "contributes"
-    ANGGOTA ||--o{ KAS_DITUNDA : "owes"
-    ANGGOTA {
-        int id PK
-        string nama
-        string level_kas
-    }
-    KAS {
-        int id PK
-        int anggota_id FK
-        decimal jumlah
-    }
+---
+
+## 🚀 Cara Menjalankan
+
+### Prasyarat
+- PHP 8.x
+- MySQL 8.0+
+- XAMPP / Laragon / web server lokal
+
+### Instalasi
+
+```bash
+# 1. Clone repository
+git clone https://github.com/B3rlinSugi/cash-flow.git
+cd cash-flow
+
+# 2. Import database
+mysql -u root -p < database/cashflow.sql
+
+# 3. Konfigurasi koneksi database
+cp config/config.example.php config/config.php
+# Edit config.php dengan kredensial DB kamu
+
+# 4. Jalankan aplikasi
+# Letakkan folder di htdocs (XAMPP) atau www (Laragon)
+# Akses via: http://localhost/cash-flow
+```
+
+### Kredensial Default
+
+| Role | Email | Password |
+|---|---|---|
+| Admin | admin@cashflow.com | admin123 |
+
+---
+
+## 📁 Struktur Proyek
+
+```
+cash-flow/
+├── anggota/            # Manajemen anggota kas
+├── assets/             # CSS, JS, images
+├── auth/               # Login, logout, session handling
+├── config/
+│   └── config.php      # Konfigurasi DB & aplikasi
+├── database/
+│   └── cashflow.sql    # Skema DB lengkap + seed data
+├── includes/           # Shared components
+├── kas/                # Modul transaksi pemasukan/pengeluaran
+├── laporan/            # Modul PDF export laporan
+├── pengeluaran/        # Modul pengeluaran
+├── index.php           # Dashboard utama (analytics)
+└── login.php           # Halaman login
 ```
 
 ---
 
-## 🚀 Local Installation
+## 🔑 Keputusan Teknis
 
-### Prerequisites
-- PHP 8.1+
-- MySQL 8.0
-- Composer
+**Mengapa migrasi MD5 → bcrypt?**
+MD5 adalah algoritma hashing cepat yang tidak dirancang untuk password — rentan terhadap brute-force dan rainbow table. bcrypt mahal secara komputasi by design dan menyertakan salting otomatis, menjadikannya standar industri untuk penyimpanan password.
 
-### Setup Steps
-1. **Clone & Setup:**
-   ```bash
-   git clone https://github.com/B3rlinSugi/cash-flow.git
-   cd cash-flow
-   composer install
-   ```
+**Mengapa PDO bukan raw MySQLi?**
+PDO mendukung prepared statements secara native dan bersifat database-agnostic, memungkinkan sistem untuk mendukung MySQL maupun PostgreSQL tanpa menulis ulang logika query.
 
-2. **Database:**
-   Update `config/database.php` with your credentials and initialize the schema using `database/cashflow.sql`.
+**Mengapa InnoDB bukan MyISAM?**
+InnoDB mendukung foreign key constraints dan transaksi ACID, yang sangat penting untuk menjaga integritas data keuangan — terutama dalam tracking deferred payment di mana perubahan status harus bersifat atomik.
 
 ---
 
-## 👨‍💻 Developed By
+## 🧪 Hasil Pengujian
 
-**Berlin Sugiyanto Hutajulu**
-
-[![GitHub](https://img.shields.io/badge/GitHub-B3rlinSugi-181717?style=flat&logo=github)](https://github.com/B3rlinSugi)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-berlinsugi-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/berlinsugi)
-[![Portfolio](https://img.shields.io/badge/Portfolio-berlinsugi.vercel.app-4e73df?style=flat&logo=vercel)](https://berlinsugi.vercel.app)
-
----
-<p align="center">Built with ❤️ and Modern PHP · Financial Integrity Simplified</p>
-gi)
-[![Portfolio](https://img.shields.io/badge/Portfolio-berlinsugi.vercel.app-4e73df?style=flat&logo=vercel)](https://berlinsugi.vercel.app)
+| Skenario | Hasil |
+|---|---|
+| Migrasi MD5 → bcrypt (user existing) | ✅ 0 breaking changes |
+| Auto-update status deferred payment | ✅ Akurat |
+| PDF export (semua kombinasi filter) | ✅ Output konsisten |
+| SQL injection via input fields | ✅ Semua diblokir |
 
 ---
 
-<p align="center">Built with ❤️ for class financial management · Deployed on Railway</p>
+## 👤 Author
+
+<div align="center">
+
+**Berlin Sugiyanto**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-berlinsugi-0077B5?style=flat-square&logo=linkedin)](https://linkedin.com/in/berlinsugi)
+[![Portfolio](https://img.shields.io/badge/Portfolio-berlinsugi.vercel.app-4e73df?style=flat-square&logo=vercel)](https://berlinsugi.vercel.app)
+[![Email](https://img.shields.io/badge/Email-berlinsugiyanto23%40gmail.com-D14836?style=flat-square&logo=gmail)](mailto:berlinsugiyanto23@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-B3rlinSugi-181717?style=flat-square&logo=github)](https://github.com/B3rlinSugi)
+
+</div>
+
+---
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f3460,50:16213e,100:1a1a2e&height=100&section=footer" />
+
+</div>
