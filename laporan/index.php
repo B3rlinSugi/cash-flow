@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Dompdf\Dompdf;
+use Dompdf\Options;
 $pageTitle = 'Export Laporan';
 $pdo = getDB();
 
@@ -35,8 +39,8 @@ if ($action === 'pdf') {
     $saldo       = $totalKas - $totalKeluar;
     $bulanLabel  = date('F Y', strtotime($bulan . '-01'));
 
-    // Generate HTML untuk PDF (dicetak via browser print)
-    header('Content-Type: text/html; charset=utf-8');
+    // Generate HTML untuk PDF via Dompdf
+    ob_start();
     echo '<!DOCTYPE html><html lang="id"><head>
     <meta charset="UTF-8">
     <title>Laporan ' . $bulanLabel . '</title>
@@ -51,12 +55,10 @@ if ($action === 'pdf') {
         .total-row td { font-weight:bold; background:#e8f4e8; }
         .saldo { text-align:right; margin-top:10px; font-size:14px; font-weight:bold; }
         .saldo span { color:' . ($saldo >= 0 ? 'green' : 'red') . '; }
-        @media print { button { display:none; } }
     </style>
     </head><body>';
     echo '<h2>Laporan Keuangan — Cash Flow Class</h2>';
     echo '<p class="sub">Periode: ' . $bulanLabel . '</p>';
-    echo '<button onclick="window.print()" style="margin-bottom:12px;padding:6px 16px;background:#4e73df;color:#fff;border:none;border-radius:4px;cursor:pointer;">🖨️ Cetak / Save PDF</button>';
 
     if (!empty($kas)) {
         echo '<h3>Kas Masuk</h3><table><tr><th>No</th><th>Tanggal</th><th>Anggota</th><th>Keterangan</th><th>Jumlah</th></tr>';
@@ -74,6 +76,20 @@ if ($action === 'pdf') {
     }
     echo '<p class="saldo">Saldo Bersih: <span>' . rupiah($saldo) . '</span></p>';
     echo '</body></html>';
+    
+    $html = ob_get_clean();
+
+    $options = new Options();
+    $options->set('isRemoteEnabled', true);
+    $options->set('defaultFont', 'Arial');
+    
+    $dompdf = new Dompdf($options);
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->loadHtml($html);
+    $dompdf->render();
+    
+    $filename = "Laporan_CashFlow_" . str_replace(' ', '_', $bulanLabel) . ".pdf";
+    $dompdf->stream($filename, ["Attachment" => true]);
     exit;
 }
 
