@@ -2,6 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,50:16213e,100:0f3460&height=180&section=header&text=Cash%20Flow%20Class&fontSize=45&fontColor=e94560&animation=fadeIn&fontAlignY=38&desc=Financial%20Management%20System%20%7C%20PHP%208%20%7C%20MySQL%20%7C%20bcrypt&descAlignY=55&descColor=a8b2d8" />
 
+<a href="https://readme-typing-svg.herokuapp.com"><img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=15&duration=3000&pause=1000&color=E94560&center=true&vCenter=true&width=535&lines=💰+Enterprise+Financial+Management+System;📊+Analytics+Dashboard+with+6-Month+Chart.js+Trends;🔒+Secured+with+bcrypt+Password+Hashing;📄+Dynamic+PDF+Export+for+Financial+Audits" alt="Typing SVG" /></a>
 [![PHP](https://img.shields.io/badge/PHP-8.x-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
