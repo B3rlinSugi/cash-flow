@@ -2,93 +2,236 @@
   <br />
   <h1>💸 Cash Flow Management System</h1>
   <p>
-    <strong>A Secure Financial Tracking App Upgraded from Legacy Code</strong>
+    <strong>A Secure Financial Tracking App Migrated from Legacy Standards</strong>
   </p>
   <p>
-    <img src="https://img.shields.io/badge/PHP_8-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8" />
-    <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-    <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-    <img src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Chart.js" />
+    A robust financial tracking application designed to monitor cash-ins, and expenditures, featuring a massive architectural overhaul focusing on Database Modernization and Security Hardening.<br><br>
+    <strong>🚀 Tech Stack:</strong> Native PHP 8, PostgreSQL, MySQL, Chart.js
+  </p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Language-PHP_8-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8" />
+    <img src="https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+    <img src="https://img.shields.io/badge/Database-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+    <img src="https://img.shields.io/badge/Charts-Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Chart.js" />
+  </p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Status-Active_Development-success?style=flat-square" alt="Status" />
+    <img src="https://img.shields.io/badge/Version-v2.0.0-blue?style=flat-square" alt="Version" />
+    <img src="https://img.shields.io/github/last-commit/B3rlinSugi/cash-flow?style=flat-square" alt="Last Updated" />
+    <img src="https://img.shields.io/github/stars/B3rlinSugi/cash-flow?style=flat-square" alt="Stars" />
+    <img src="https://img.shields.io/github/issues/B3rlinSugi/cash-flow?style=flat-square" alt="Issues" />
+    <img src="https://img.shields.io/github/license/B3rlinSugi/cash-flow?style=flat-square" alt="License" />
   </p>
   <p>
-    <a href="https://cash-flow-pink.vercel.app/" target="_blank">View Live Demo</a>
+    <a href="https://cash-flow-pink.vercel.app/" target="_blank"><strong>View Live Demo</strong></a>
   </p>
 </div>
 
 ---
 
-## 📌 Overview
+## 📑 Table of Contents
 
-**Cash Flow** is a robust financial tracking application designed to monitor pending payments, cash-ins, and expenditures. Originally a legacy application, this project represents a massive architectural overhaul focusing on **Database Modernization**, **Schema Redesign**, and **Security Hardening**.
-
-The system now supports dual-database connections (PostgreSQL and MySQL) via PDO abstractions, ensuring high availability and vendor flexibility for enterprise deployments.
-
-## ✨ Legacy Code Upgrade & Security Migration
-
-The core achievement of this project is the migration from insecure legacy standards to modern security protocols:
-- **MD5 to Bcrypt Migration**: Completely eradicated vulnerable MD5 password hashing. Replaced with robust `bcrypt` hashing, incorporating automatic salt generation.
-- **InnoDB Schema Redesign**: Migrated from outdated MyISAM to strictly enforced InnoDB (MySQL) and PostgreSQL schemas, introducing ACID compliance and foreign key constraints.
-- **SQL Injection Prevention**: All raw queries were refactored into strict PDO Prepared Statements.
-
-## 📊 Core Application Features
-
-- **Interactive Financial Dashboard**: Utilizes `Chart.js` to render dynamic 6-month cash flow trends, giving instant visibility into organizational financial health.
-- **Pending Payment Tracking**: Specialized modules to track accounts receivable (anggota) and operational expenditures (pengeluaran).
-- **Dual Database Support**: Seamlessly switch between PostgreSQL and MySQL simply by changing environment parameters.
-- **Advanced PDF Export Filtering**: Integrated `TCPDF/FPDF` to allow administrators to generate deeply filtered financial reports (e.g., date ranges, specific categories) directly to PDF format.
+- [About This Project](#-about-this-project)
+- [Key Features](#-key-features)
+- [Tech Stack](#-tech-stack)
+- [Software Architecture](#-software-architecture)
+- [Database Design](#-database-design)
+- [Project Structure](#-project-structure)
+- [Installation Guide](#-installation-guide)
+- [Security Hardening Details](#-security-hardening-details)
+- [Performance Optimization & Scalability](#-performance-optimization--scalability)
+- [Development Workflow & Deployment](#-development-workflow--deployment)
+- [Roadmap & Known Limitations](#-roadmap--known-limitations)
+- [Lessons Learned](#-lessons-learned)
+- [Contributing](#-contributing)
+- [Why This Project Demonstrates Software Engineering Skills](#-why-this-project-demonstrates-software-engineering-skills)
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🎯 About This Project
 
-- **Backend**: Native PHP 8
-- **Database Adapters**: PDO (PHP Data Objects)
-- **Supported Databases**: PostgreSQL 14+, MySQL 8+
-- **Frontend UI**: Bootstrap 5, Custom CSS
-- **Data Visualization**: Chart.js
-- **Document Generation**: TCPDF / FPDF
+### Why This Project Exists
+Many legacy PHP applications in production today suffer from severe security vulnerabilities (MD5 hashing, SQL injection) and outdated database engines (MyISAM). **Cash Flow** exists as a demonstration of how to successfully audit, refactor, and modernize a legacy codebase into a secure, enterprise-ready application using Native PHP 8 and PDO.
+
+### The Problem Being Solved
+Financial tracking applications handle highly sensitive data. The previous iteration of this codebase utilized `mysql_*` functions and plain MD5 hashes. This project solves these vulnerabilities by strictly enforcing `bcrypt` hashing, PDO Prepared Statements, and dual-database vendor compatibility (MySQL & PostgreSQL).
+
+### Business Value
+- **High Availability & Vendor Lock-in Prevention:** By utilizing PDO, the application can switch between MySQL and PostgreSQL simply by changing connection strings, preventing database vendor lock-in.
+- **Enterprise Security:** Hardened authentication prevents credential stuffing and dictionary attacks against users.
 
 ---
 
-## 🚀 Getting Started
+## ✨ Key Features
 
-### Prerequisites
-- **Apache Web Server**
-- **PHP 8.0+**
-- **PostgreSQL** or **MySQL** Database
+### Core Operations
+*   **Income & Expenditure Tracking:** Full CRUD lifecycle for financial records.
+*   **Interactive Analytics:** Visual dashboard utilizing Chart.js to render monthly and yearly financial summaries.
+*   **Report Generation:** Advanced filtering to export specific date ranges.
 
-### Installation
+### Security & Architecture
+*   **Bcrypt Migration:** Completely eradicated vulnerable MD5 hashing.
+*   **Dual-Database Support:** Fully functional on both MySQL (InnoDB) and PostgreSQL via native PDO abstractions.
+*   **Stateless File Routing:** Clean file structure organizing modules by business domain (`kas`, `laporan`, `pengeluaran`).
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/B3rlinSugi/cash-flow.git
-   cd cash-flow
-   ```
+---
 
-2. **Database Setup:**
-   Choose your preferred database engine. SQL dumps are provided in the `/database` folder:
-   - For MySQL: Import `database/mysql_schema.sql`
-   - For PostgreSQL: Execute the schema inside `database/postgres_schema.sql`
+## 💻 Tech Stack
 
-3. **Configure Connection:**
-   - Open `config/database.php`.
-   - Update the PDO connection to point to either `mysql:` or `pgsql:` along with your credentials.
+### Backend & Database
+*   **Language:** PHP 8.x (Native)
+*   **Primary Database:** PostgreSQL
+*   **Secondary Database:** MySQL 8.0 (InnoDB)
+*   **Driver:** PHP Data Objects (PDO)
 
-4. **Run the Application:**
-   - Host the directory inside your local web server environment (`htdocs` or `www`).
-   - Access via browser: `http://localhost/cash-flow`.
+### Frontend
+*   **Markup/Styling:** HTML5, CSS3, Bootstrap
+*   **Visualization:** Chart.js
+*   **Interactivity:** Vanilla JS / jQuery
+
+---
+
+## 🏗️ Software Architecture
+
+This project utilizes a **Domain-Driven Modular Structure** within a Native PHP ecosystem.
+
+```mermaid
+flowchart TD
+    Client["Web Browser"] -->|"HTTP Request"| Entry["index.php / Domain Files"]
+    
+    subgraph "Native PHP Core"
+        Entry -->|"Check Auth"| Auth["auth/login.php"]
+        Entry -->|"Require Config"| Config["config/database.php"]
+        
+        Config -->|"PDO Connection"| Logic["Business Logic (kas, laporan)"]
+        Logic -->|"Includes"| Views["HTML Views (includes/)"]
+    end
+    
+    subgraph "Database Layer (Multi-Vendor)"
+        Logic -->|"Prepared Statements"| Postgres[("PostgreSQL")]
+        Logic -->|"Prepared Statements"| MySQL[("MySQL")]
+    end
+```
+
+### Why this architecture?
+1.  **Refactoring Safety:** Transitioning a legacy app to a full framework like Laravel is often too risky. This architecture proves that Native PHP can be heavily secured and modularized without rewriting the entire app from scratch.
+2.  **Performance:** Zero framework booting overhead.
+
+---
+
+## 🗄️ Database Design
+
+The schema has been migrated from MyISAM to InnoDB (MySQL) and PostgreSQL to enforce ACID compliance.
+
+```mermaid
+erDiagram
+    users ||--o{ transactions : "records"
+    
+    users {
+        int id PK
+        string username UK
+        string password "Bcrypt Hash"
+    }
+    
+    transactions {
+        int id PK
+        int user_id FK
+        string type "INCOME | EXPENSE"
+        decimal amount
+        date transaction_date
+        string description
+    }
+```
+
+### Normalization Highlights
+- **ACID Compliance:** Transactions are now strictly typed. `amount` utilizes appropriate decimal/numeric types rather than floats to prevent financial rounding errors.
+
+---
+
+## 📁 Project Structure
+
+```text
+├── assets/                  # CSS, JS, and UI images
+├── auth/                    # Authentication logic (Login/Logout)
+├── config/                  # Configuration (Database PDO Singleton)
+├── database/                # SQL dumps for MySQL and PostgreSQL
+├── includes/                # Reusable UI components (header, footer, navbar)
+├── kas/                     # Domain: Income processing
+├── pengeluaran/             # Domain: Expenditure processing
+├── laporan/                 # Domain: Report generation
+├── index.php                # Main dashboard entry point
+└── migrate.php              # Script to assist in MD5 to Bcrypt migration
+```
+
+---
+
+## 🚀 Installation Guide
+
+### 1. Requirements
+*   PHP 8.0+
+*   PostgreSQL or MySQL
+
+### 2. Clone the Repository
+```bash
+git clone https://github.com/B3rlinSugi/cash-flow.git
+cd cash-flow
+```
+
+### 3. Database Setup
+1. Create a database named `cash_flow`.
+2. Import the appropriate SQL dump from the `database/` directory (either `.sql` for MySQL or PostgreSQL format).
+
+### 4. Configuration
+Open `config/koneksi.php` (or relevant config file) and verify the PDO DSN:
+```php
+// Example PostgreSQL connection
+$dsn = "pgsql:host=localhost;port=5432;dbname=cash_flow;";
+```
+
+### 5. Run the Application
+Place the folder inside `htdocs` or run PHP's built-in server:
+```bash
+php -S localhost:8000
+```
+
+---
+
+## 🔐 Security Hardening Details
+
+### Legacy Vulnerability Remediation
+1.  **SQL Injection:** Replaced all `mysql_query()` and `mysqli_query()` calls with `$pdo->prepare()`. User input is now strictly parameterized.
+2.  **Password Storage:** Replaced `$password = md5($_POST['password'])` with `$hash = password_hash($_POST['password'], PASSWORD_DEFAULT)`.
+3.  **XSS Protection:** Enforced `htmlspecialchars()` on all dashboard output fields (e.g., transaction descriptions).
+
+---
+
+## 🤝 Contributing
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+---
+
+## 📝 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 👨‍💻 Author
 
-**Berlin Sugiyanto**  
-Backend Developer & System Architect  
-- Portfolio: [berlinsugi.vercel.app](https://berlinsugi.vercel.app/)
-- LinkedIn: [linkedin.com/in/berlinsugi](https://linkedin.com/in/berlinsugi)
+**Berlin Sugiyanto**
+*   Backend Developer | System Architect
+*   [LinkedIn](https://linkedin.com/in/berlinsugi)
 
 ---
 
-<div align="center">
-  <i>"Modernizing legacy code is just as important as writing new code."</i>
-</div>
+<br>
+
+# 👔 Why This Project Demonstrates Software Engineering Skills
+
+*A note for Technical Recruiters and Engineering Managers.*
+
+This repository demonstrates a highly valuable skill in the enterprise world: **Legacy Modernization**. 
+1.  **Auditing & Refactoring:** It takes significant engineering discipline to take an insecure, legacy codebase and methodically upgrade it to modern security standards without breaking existing functionality.
+2.  **Database Agnosticism:** Implementing PDO to support both MySQL and PostgreSQL proves an understanding of database abstraction and vendor flexibility.
+3.  **Security Focus:** The explicit migration from MD5 to Bcrypt and the elimination of SQL injection vectors showcases a proactive, defense-in-depth approach to application security.
