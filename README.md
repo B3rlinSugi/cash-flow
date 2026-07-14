@@ -1,33 +1,17 @@
 <div align="center">
-  <br />
-  <h1>💸 Cash Flow Management System</h1>
-  <p>
-    <strong>A Secure Financial Tracking App Migrated from Legacy Standards</strong>
-  </p>
-  <p>
-    A robust financial tracking application designed to monitor cash-ins, and expenditures, featuring a massive architectural overhaul focusing on Database Modernization and Security Hardening.<br><br>
-    <strong>🚀 Tech Stack:</strong> Native PHP 8, PostgreSQL, MySQL, Chart.js
-  </p>
-
-  <p>
-    <img src="https://img.shields.io/badge/Language-PHP_8-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8" />
-    <img src="https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-    <img src="https://img.shields.io/badge/Database-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-    <img src="https://img.shields.io/badge/Charts-Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Chart.js" />
-  </p>
-
-  <p>
-    <img src="https://img.shields.io/badge/Status-Active_Development-success?style=flat-square" alt="Status" />
-    <img src="https://img.shields.io/badge/Version-v2.0.0-blue?style=flat-square" alt="Version" />
-    <img src="https://img.shields.io/github/last-commit/B3rlinSugi/cash-flow?style=flat-square" alt="Last Updated" />
-    <img src="https://img.shields.io/github/stars/B3rlinSugi/cash-flow?style=flat-square" alt="Stars" />
-    <img src="https://img.shields.io/github/issues/B3rlinSugi/cash-flow?style=flat-square" alt="Issues" />
-    <img src="https://img.shields.io/github/license/B3rlinSugi/cash-flow?style=flat-square" alt="License" />
-  </p>
-  <p>
-    <a href="https://cash-flow-pink.vercel.app/" target="_blank"><strong>View Live Demo</strong></a>
-  </p>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=250&section=header&text=Cash%20Flow%20Management&fontSize=60&fontAlignY=35&desc=Secure%20Financial%20Tracking%20App&descAlignY=55&descAlign=50" />
+  <br /><br />
+  <a href="https://cash-flow-pink.vercel.app/">
+    <img src="https://img.shields.io/badge/Live_Demo-%E2%86%92-FF6B00?style=for-the-badge&logo=vercel" alt="Live Demo" />
+  </a>
 </div>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/PHP-8.x-777BB4?logo=php&style=for-the-badge" alt="PHP 8" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/PostgreSQL-DB-4169E1?logo=postgresql&style=for-the-badge" alt="PostgreSQL" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/MySQL-DB-4479A1?logo=mysql&style=for-the-badge" alt="MySQL" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/Chart.js-Analytics-FF6384?logo=chartdotjs&style=for-the-badge" alt="Chart.js" /></a>
+</p>
 
 ---
 
